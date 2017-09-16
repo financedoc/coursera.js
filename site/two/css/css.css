@@ -4,6 +4,8 @@
   box-sizing: border-box;
   font-family: Helvetica;
 }
+body {font-size: 16px;
+}
 h1 {
   text-align: center;
   margin-bottom: 15px;
@@ -21,9 +23,14 @@ p {
   position: relative;
   color: black;
   padding-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  overflow: hidden; 
   
+}
+.itembox:hover {
+  overflow: auto;
+  cursor:ns-resize;
 }
 
 .itemtitle {
@@ -57,7 +64,7 @@ p {
   .col-lg-4 {
     float: left;
     border: 1px solid green;
-    width: 32%;
+    width: 31%;
   }
 }
 
@@ -68,10 +75,10 @@ p {
     border: 1px solid red;
   }
   .col-md-6 {
-    width: 49%;
+    width: 48%;
   }
   .col-md-12 {
-    width: 98.5%;
+    width: 97%;
   }
 }
 /**********mobile devices**************/
@@ -81,4 +88,7 @@ p {
     border: 1px solid blue;
     width: 100%;
   }
+  #bigtitle {
+
+      }
 }
