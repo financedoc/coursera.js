@@ -11,6 +11,12 @@ h1 {
   margin-bottom: 15px;
   font-size: 1.75em
 }
+h2 {
+    text-align: left;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  visibility: hidden;
+}
 
 p {
   padding-top: 18px;
@@ -41,7 +47,17 @@ p {
   position: absolute;
   top: 2px;
   right: 2px;
-  width: 90px;
+  
+}
+.mobile-itemtitle{
+  visibility: hidden;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  font-size: 1.25em;
+  border: 1px solid black;
+  width: 100%;
+  background-color: #00ffff;
 }
 
 .seconditem {
@@ -52,6 +68,11 @@ p {
    background-color: #f00fff;
 }
 
+.meniitems {
+  position: relative;
+  top:10px;
+  margin-top: 10px;
+}
 
 /* Borrowed from Simple Responsive Framework. */
 .row {
@@ -59,12 +80,17 @@ p {
   margin: 5px;
 }
 
+
+
 /********** Large devices only **********/
 @media (min-width: 992px) {
   .col-lg-4 {
     float: left;
     border: 1px solid green;
     width: 31%;
+  }
+  .itemtitle {
+    width: 90px;
   }
 }
 
@@ -80,6 +106,9 @@ p {
   .col-md-12 {
     width: 97%;
   }
+  .itemtitle {
+    width: 90px;
+  }
 }
 /**********mobile devices**************/
 @media (max-width: 767px) {
@@ -88,7 +117,22 @@ p {
     border: 1px solid blue;
     width: 100%;
   }
+  .itemtitle {
+    visibility: hidden;
+  }
   #bigtitle {
-
+    visibility: hidden;
+    
       }
+  #smalltitle {
+    visibility: visible;
+    font-family: Times;
+    position: absolute;
+    top: 0px;
+    left:0px; 
+  }
+  .mobile-itemtitle {
+    position: relative;
+  visibility: visible;
+  }
 }
