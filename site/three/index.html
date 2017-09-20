@@ -18,20 +18,39 @@
           <div class="navbar-brand">
             <a href="index.html">Food LLC</a>
           </div>
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
         </div>
+
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#section1">
+                <br class="hidden-xs"> Chicken</a>
+            </li>
+            <li>
+              <a href="#section2">
+                <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> Beef</a>
+            </li>
+            <li>
+              <a href="#section3">
+                <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sushi</a>
+            </li>
+            
+          </ul><!-- #nav-list -->
+        </div>
+
       </div>
     </nav>
   </header>
 
   <div class="itembox col-lg-4 col-md-6 col-sd-12">
-    <div class="itemtitle">Chicken</div>
+    <div class="itemtitle" id="section1"> Chicken</a></div>
       <dv class="menuitems"><ul>
           <li>item1</li>
           <li>item2</li>
@@ -59,7 +78,7 @@
   </div>
 
   <div class="itembox col-lg-4 col-md-6 col-sd-12">
-    <div class="itemtitle seconditem">Beef</div>
+    <div class="itemtitle seconditem" id="section2">Beef</div>
     <div class="menuitems">
       <ul>
           <li>item1</li>
@@ -87,7 +106,7 @@
   </div>
   
   <div class="itembox col-lg-4 col-md-12 col-sd-12">
-    <div class="itemtitle thirditem">Sushi</div>
+    <div class="itemtitle thirditem" id="section3">Sushi</div>
      <div class="menuitems"><ul>
           <li>item1</li>
           <li>item2</li>

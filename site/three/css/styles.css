@@ -119,22 +119,5 @@ p {
     border: 1px solid blue;
     width: 100%;
   }
-  .itemtitle {
-    visibility: hidden;
-  }
-  #bigtitle {
-    visibility: hidden;
-    
-      }
-  #smalltitle {
-    visibility: visible;
-    font-family: Times;
-    position: absolute;
-    top: 0px;
-    left:0px; 
-  }
-  .mobile-itemtitle {
-    position: relative;
-  visibility: visible;
-  }
+
 }
