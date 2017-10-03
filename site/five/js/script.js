@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtml = "snippets/about.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -129,7 +130,7 @@ function buildAndShowHomeHTML (categories) {
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
-      console.log(homeHtmlToInsertIntoMainPage)
+      //console.log(homeHtmlToInsertIntoMainPage)
       insertHtml("#main-content",homeHtmlToInsertIntoMainPage)
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
@@ -140,11 +141,39 @@ function buildAndShowHomeHTML (categories) {
 function chooseRandomCategory (categories) {
   // Choose a random index into the array (from 0 inclusively until array length (exclusively))
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
-
   // return category object with that randomArrayIndex
   return categories[randomArrayIndex];
 }
 
+//-----------------------------------------------------------
+// here are the functions for the advanced part
+function chooseRandomStars () {
+  var randomIndex = Math.floor(Math.random() * 5 + 1);
+  return randomIndex;
+}
+
+dc.showStars= function(){
+  var stars = chooseRandomStars();
+  //console.log(stars)
+  //showLoading("#main-content");
+  var txtStars = " Stars";
+  if (stars ==1){txtStars = " Star"};
+  if (stars ==5){txtStars = " Stars!"};
+   $ajaxUtils.sendGetRequest(aboutHtml, function(html) {
+      newhtml = '<span class = "stararray">' + html+ stars +txtStars+ '</span>';
+      insertHtml("#main-content",newhtml);
+      k=$(".fa");
+      for (i=0; i<stars;i++){
+      k[i].className= "fa fa-star";
+    }
+   },false)
+    // change each span's class to fa fa-star if its index is smaller than sstars
+      
+
+}
+
+
+//-----------------------------------------------------------
 
 // Load the menu categories view
 dc.loadMenuCategories = function () {
