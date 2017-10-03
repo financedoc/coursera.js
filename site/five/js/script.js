@@ -109,7 +109,7 @@ function buildAndShowHomeHTML (categories) {
       // variable's name implies it expects.
       //  the randomizer function returns a categories object
        var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
-       console.log(chosenCategoryShortName);
+       //console.log(chosenCategoryShortName);
 
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
@@ -130,7 +130,7 @@ function buildAndShowHomeHTML (categories) {
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
-      //console.log(homeHtmlToInsertIntoMainPage)
+      
       insertHtml("#main-content",homeHtmlToInsertIntoMainPage)
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
@@ -168,7 +168,7 @@ dc.showStars= function(){
     }
    },false)
     // change each span's class to fa fa-star if its index is smaller than sstars
-      
+   return true;   
 
 }
 
