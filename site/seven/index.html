@@ -1,40 +1,31 @@
-﻿<!DOCTYPE HTML>
-<!-- saved from url=(0104)https://raw.githubusercontent.com/jhu-ep-coursera/fullstack-course5/master/examples/Lecture23/index.html -->
-<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
-http-equiv="X-UA-Compatible">
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Custom Service</title>
+  </head>
+  <body>
+    <h1>Custom Service Through a Factory</h1>
 
-<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD>
-<BODY>
-<PRE>&lt;!DOCTYPE html&gt;
-&lt;html ng-app='ShoppingListApp'&gt;
-  &lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;script src="angular.min.js"&gt;&lt;/script&gt;
-    &lt;script src="app.js"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-    &lt;title&gt;Custom Service&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Custom Service Through a Factory&lt;/h1&gt;
-
-    &lt;!-- Preconfigured List --&gt;
-    &lt;div id="list" ng-controller='ShoppingListController as list'&gt;
-      &lt;h3&gt;Shopping List&lt;/h3&gt;
-      &lt;input type="text" ng-model="list.itemName" placeholder="item name"&gt;
-      &lt;input type="text" ng-model="list.itemQuantity" placeholder="quantity"&gt;
-      &lt;button ng-click="list.addItem();"&gt;Add Item&lt;/button&gt;
-      &lt;ol&gt;
-        &lt;li ng-repeat="item in list.items"&gt;
+    <!-- Preconfigured List -->
+    <div id="list" ng-controller='ShoppingListController as list'>
+      <h3>Shopping List</h3>
+      <input type="text" ng-model="list.itemName" placeholder="item name">
+      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+      <button ng-click="list.addItem();">Add Item</button>
+      <ol>
+        <li ng-repeat="item in list.items">
           {{ item.quantity }} of {{ item.name }}
-          &lt;button ng-click="list.removeItem($index);"&gt;Remove Item&lt;/button&gt;
-        &lt;/li&gt;
-      &lt;/ol&gt;
-      &lt;!-- &lt;div ng-if="list.errorMessage" class="error"&gt;Error: {{list.errorMessage}}&lt;/div&gt; --&gt;
-      &lt;!-- &lt;div ng-show="list.errorMessage" class="error"&gt;Error: {{list.errorMessage}}&lt;/div&gt; --&gt;
-      &lt;div ng-hide="!list.errorMessage" class="error"&gt;Error: {{list.errorMessage}}&lt;/div&gt;
-    &lt;/div&gt;
+          <button ng-click="list.removeItem($index);">Remove Item</button>
+        </li>
+      </ol>
+      <!-- <div ng-if="list.errorMessage" class="error">Error: {{list.errorMessage}}</div> -->
+      <!-- <div ng-show="list.errorMessage" class="error">Error: {{list.errorMessage}}</div> -->
+      <div ng-hide="!list.errorMessage" class="error">Error: {{list.errorMessage}}</div>
+    </div>
 
-  &lt;/body&gt;
-&lt;/html&gt;
-</PRE></BODY></HTML>
+  </body>
+</html>
