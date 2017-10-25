@@ -14,7 +14,7 @@
       <div ng-if="showList.empty">All Items are Bought</div>
       <ol>
         <li ng-repeat="item in showList.items">
-          {{ item.quantity }} of {{ item.name }}
+          {{ item.quantity }} of {{ item.name }} unit price <input type='text' ng-model='item.pricePerItem'></input>
           <button ng-click="showList.boughtItem($index);">Bought</button>
         </li>
       </ol>
@@ -25,7 +25,7 @@
         <span ng-if="boughtList.showMsg()" >Nothing bought yet</span>
       <ol>
         <li ng-repeat="item in boughtList.boughtItems">
-          {{ item.quantity }} of {{ item.name }}
+        Bought  {{ item.quantity }} of {{ item.name }} for total price of $$${{item.quantity*item.pricePerItem}}
 
         </li>
       </ol>
