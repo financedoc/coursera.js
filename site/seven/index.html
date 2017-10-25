@@ -11,6 +11,7 @@
     <h1>Shopping List</h1>
     <div ng-controller='ToBuyController as showList'>
       <h4> To Buy</h4>
+      <div ng-if="showList.empty">All Items are Bought</div>
       <ol>
         <li ng-repeat="item in showList.items">
           {{ item.quantity }} of {{ item.name }}
@@ -21,7 +22,7 @@
 
     <div ng-controller='AlreadyBoughtController as boughtList'>
         <h4> Already Bought</h4>
-        <span ng-if="boughtList.boughtItems==null">Nothing bought yet</span>
+        <span ng-if="boughtList.showMsg()" >Nothing bought yet</span>
       <ol>
         <li ng-repeat="item in boughtList.boughtItems">
           {{ item.quantity }} of {{ item.name }}

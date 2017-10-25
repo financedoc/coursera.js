@@ -10,40 +10,54 @@ ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
   var showList = this;
   showList.items = ShoppingListCheckOffService.getItems();
-  showList.boughtItem = function (itemIndex) {
-  ShoppingListCheckOffService.bought(itemIndex);
 
-}
+  showList.boughtItem = function (itemIndex) {
+  showList.items = ShoppingListCheckOffService.getItems();
+  ShoppingListCheckOffService.bought(itemIndex);
+  showList.empty = (showList.items.length === 0)
+  }
 }
 
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
   var boughtList = this;
   boughtList.boughtItems = ShoppingListCheckOffService.getBoughtItems();
-
+  boughtList.showMsg =  function() {
+    return ShoppingListCheckOffService.getEmpty();
+  }
+  //boughtList.x=ShoppingListCheckOffService.getQty
+  console.log(boughtList.showMsg)
 }
 
 
 function ShoppingListCheckOffService() {
   var service = this;
-
   // List of shopping items
-  var items=[{name:"Eggs",quantity:12},{name:"Milk",quantity:2},{name:"Meat",quantity:2},{name:"Fish",quantity:1},{name:"Coffee",quantity:7}]
-
+  var items=[{name:"Eggs",quantity:12},
+              {name:"Milk",quantity:2},
+              {name:"Meat",quantity:2},
+              {name:"Fish",quantity:1},
+              {name:"Coffee",quantity:7}]
+  // list fo bought items
   var boughtItems = [];
 
   service.bought = function (itemIndex) {
-    console.log(itemIndex)
     boughtItems.push(items[itemIndex]);
     items.splice(itemIndex, 1);
-  };
 
+  };
+  service.getEmpty = function () {
+    if (boughtItems.length >0) return 0
+    else return 1;
+
+  };
   service.getItems = function () {
     return items;
   };
   service.getBoughtItems = function () {
     return boughtItems;
   };
+
 }
 
 })();
