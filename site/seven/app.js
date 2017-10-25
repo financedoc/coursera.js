@@ -4,7 +4,8 @@
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+.service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+.filter('custom',customFilter);
 
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
@@ -26,7 +27,7 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
     return ShoppingListCheckOffService.getEmpty();
   }
   //boughtList.x=ShoppingListCheckOffService.getQty
-  console.log(boughtList.showMsg)
+  //console.log(boughtList.showMsg)
 }
 
 
@@ -57,6 +58,15 @@ function ShoppingListCheckOffService() {
   service.getBoughtItems = function () {
     return boughtItems;
   };
+
+}
+
+function customFilter(){
+  return function (input){
+    var p = input.toFixed(2);
+    var pstring = "$$$"+p.toString();
+    return pstring;
+  }
 
 }
 
