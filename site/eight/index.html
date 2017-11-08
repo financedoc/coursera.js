@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='NarrowItDownApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Using $http Service</title>
+  </head>
+  <body>
+    <h1>Using $http Service</h1>
+
+    <div ng-controller='NarrowItDownController as menu'>
+      <h3>Enter Your Search Term</h3>
+      <input type="text" ng-model="searchTerm" ng-keyup="menuSearchService.getSearchTerm();"> </input>
+      <input type="button" value="Narrow It Down" ng-click ="")></input>
+      <ul>
+        <li ng-repeat="category in menu.categories">
+          {{ category.name }} {{category.description}} <input type="button"" value ="Reject"></input>
+
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>
