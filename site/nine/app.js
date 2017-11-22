@@ -1,11 +1,27 @@
 (function () {
 'use strict';
 
-angular.module('MenuCategoriesApp', [])
+angular.module('MenuApp', [])
+.component('myComponent',{
+  template: '<h3> Category Items </h3><ol><li ng-repeat="item in $ctrl.items">{{item.name}}</li></ol>',
+  controller: CompController,
+  bindings: {
+    dishes: '<',
+    prop2:'@' ,
+    onAction: '&'
+  } })
 .controller('MenuCategoriesController', MenuCategoriesController)
 .controller('MenuItemsController',MenuItemsController)
 .service('MenuCategoriesService', MenuCategoriesService)
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
+
+CompController.$inject  = ['MenuCategoriesService'];
+function  CompController(MenuCategoriesService) {
+  var detail2 = this;
+  detail2.items = MenuCategoriesService.getDishes();
+  console.log(detail2.items)
+
+}
 
 
 MenuCategoriesController.$inject = ['MenuCategoriesService'];
@@ -66,12 +82,12 @@ function MenuCategoriesService($http, ApiBasePath) {
 
   service.setDishes = function(dishlist){
     dishes.splice(0)
-    console.log(dishes)
+    //console.log(dishes)
     for (var i=0;i<dishlist.length;i++){
       dishes.push(dishlist[i])
 
     }
-console.log(dishes)
+//console.log(dishes)
 
   }
   service.getDishes = function(){

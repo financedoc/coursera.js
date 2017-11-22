@@ -3,12 +3,20 @@
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+    <!-- <script src="app.js"></script> -->
+    <script src="menuapp.module.js"></script>
+    <script src="data.module.js"></script>
+    <script src="menudata.service.js"></script>
+    <script src="categories.component.js"></script>
+    <script src="items.component.js"></script>
+    <script src="routes.js"></script>
+
+
     <link rel="stylesheet" href="styles.css">
-    <title>Categories and Items</title>
+    <title>Using $http Service</title>
   </head>
   <body>
-    <h1>Categories and Items</h1>
+    <h1>Using $http Service</h1>
 
     <div id="list1" ng-controller='MenuCategoriesController as menu'>
       <h3>List of Menu Categories</h3>
@@ -26,11 +34,11 @@
       </ol>
     </div>
     <div> -->
-    <my-component>{{$ctrl.items}}
+    <items>
       <!-- <ul>
         <li ng-repeat="item in $ctrl.items">x{{$index]}}</li>
       </ul> -->
-    </my-component>
+    </items>
   </div>
   </body>
 </html>
