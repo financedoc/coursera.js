@@ -3,6 +3,7 @@
 
 angular.module('MenuCategoriesApp', [])
 .controller('MenuCategoriesController', MenuCategoriesController)
+.controller('MenuItemsController',MenuItemsController)
 .service('MenuCategoriesService', MenuCategoriesService)
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
@@ -10,9 +11,7 @@ angular.module('MenuCategoriesApp', [])
 MenuCategoriesController.$inject = ['MenuCategoriesService'];
 function MenuCategoriesController(MenuCategoriesService) {
   var menu = this;
-
   var promise = MenuCategoriesService.getMenuCategories();
-
   promise.then(function (response) {
     menu.categories = response.data;
   })
@@ -22,9 +21,9 @@ function MenuCategoriesController(MenuCategoriesService) {
 
   menu.logMenuItems = function (shortName) {
     var promise = MenuCategoriesService.getMenuForCategory(shortName);
-
     promise.then(function (response) {
-      console.log(response.data);
+      menu.dishes = response.data['menu_items'];
+      MenuCategoriesService.setDishes(menu.dishes)
     })
     .catch(function (error) {
       console.log(error);
@@ -33,17 +32,23 @@ function MenuCategoriesController(MenuCategoriesService) {
 
 }
 
+MenuItemsController.$inject = ['MenuCategoriesService'];
+function MenuItemsController(MenuCategoriesService) {
+  var detail = this;
+  detail.dishes = MenuCategoriesService.getDishes();
+}
 
 MenuCategoriesService.$inject = ['$http', 'ApiBasePath'];
 function MenuCategoriesService($http, ApiBasePath) {
   var service = this;
+  var sn
+  var dishes=[]
 
   service.getMenuCategories = function () {
     var response = $http({
       method: "GET",
       url: (ApiBasePath + "/categories.json")
     });
-
     return response;
   };
 
@@ -56,10 +61,22 @@ function MenuCategoriesService($http, ApiBasePath) {
         category: shortName
       }
     });
-
     return response;
   };
 
+  service.setDishes = function(dishlist){
+    dishes.splice(0)
+    console.log(dishes)
+    for (var i=0;i<dishlist.length;i++){
+      dishes.push(dishlist[i])
+
+    }
+console.log(dishes)
+
+  }
+  service.getDishes = function(){
+    return dishes
+  }
 }
 
 })();

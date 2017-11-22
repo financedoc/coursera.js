@@ -19,6 +19,11 @@
         </li>
       </ul>
     </div>
+    <div ng-controller='MenuItemsController as detail'>
+      <ol>
+        <li ng-repeat="dish in detail.dishes">{{dish.name}}</li>
+      </ol>
+    </div>
 
   </body>
 </html>
