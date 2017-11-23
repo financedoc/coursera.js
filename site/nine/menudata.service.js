@@ -32,7 +32,7 @@ function MenuDataService($http, ApiBasePath) {
     for (var i=0;i<dishlist.length;i++){
       dishes.push(dishlist[i])
     }
-    console.log(dishes)
+    //console.log(dishes)
   }
   service.getDishes = function(){
     return dishes

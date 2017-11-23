@@ -1,3 +1,5 @@
+
+//items.component.js
 angular.module('MenuApp')
 .controller('CompController',CompController)
 .component('items',{
