@@ -1,0 +1,8 @@
+
+<h3>Categories View</h3>
+  <ul>
+  <li ng-repeat="item in $ctrl.items" ui-sref="itemDetail({itemId:$index})">
+    (<a  href="" ui-sref="itemDetail" >
+      {{ item.short_name }}</a>) {{ item.name }}
+  </li>
+</ul>
