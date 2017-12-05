@@ -37,7 +37,7 @@ function routeConfig ($stateProvider) {
       controllerAs: 'menuItemsCtrl',
       resolve: {
         menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-          console.log($stateParams.category)
+          //console.log($stateParams.category)
           return MenuService.getMenuItems($stateParams.category);
         }]
       }

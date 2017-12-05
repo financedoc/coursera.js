@@ -36,7 +36,7 @@ function MenuService($http, ApiPath) {
     console.log(user)
   }
   service.getInfo = function(){
-    return "INFOOOO!"
+    return service.user
   }
 
 
