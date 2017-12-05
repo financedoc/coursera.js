@@ -7,8 +7,9 @@ function MyController(MenuService) {
   var myinfo = this;
   //myinfo.firstn="Daisy";
   //myinfo.lastn = "Duke";
-  console.log(MenuService.getInfo())
-  myinfo.user = MenuService.getInfo()
+  //console.log(MenuService.getInfo())
+  myinfo.user = MenuService.getInfo();
+  myinfo.Path=MenuService.getPath();
 }
 
 

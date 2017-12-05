@@ -1,5 +1,12 @@
 <h3>My Info Page</h3>
-<div >{{myinfo.user.firstname}} {{myinfo.user.lastname}}</div>
-<div >{{myinfo.user.email}}</div>
-<div> {{myinfo.user.phone}}</div>
-<div>{{myinfo.user.menuPick}}
+<div ng-if="myinfo.user">Name: {{myinfo.user.firstname}} {{myinfo.user.lastname}}<br>
+Email: {{myinfo.user.email}}<br>
+Phone: {{myinfo.user.phone}}<br>
+Favorite: {{myinfo.user.favorite}} ({{myinfo.user.menuPick}})<br>
+
+<img class="img-responsive" width="250" height="150" ng-src="{{myinfo.Path}}/images/{{myinfo.user.menuPick}}.jpg">
+<!-- {{myinfo.Path}}/images/{{myinfo.user.menuPick}}.jpg -->
+</div>
+<div ng-if="!myinfo.user">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</div>

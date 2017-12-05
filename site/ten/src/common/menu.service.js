@@ -4,7 +4,6 @@
 angular.module('common')
 .service('MenuService', MenuService);
 
-
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
   var service = this;
@@ -36,9 +35,16 @@ function MenuService($http, ApiPath) {
     console.log(user)
   }
   service.getInfo = function(){
-    return service.user
+    if (service.user){
+      return service.user;
+    }
+    else {
+      return;
+    }
   }
-
+  service.getPath = function(){
+    return ApiPath;
+  }
 
 }
 
