@@ -8,7 +8,7 @@
           required
           minlength="2"
           ng-maxlength="20">
-          {{ reg.user.firstname }}
+          <!-- {{ reg.user.firstname }} -->
           <span
             ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
             firstname must be at least 2 characters long
@@ -23,7 +23,7 @@
             required
             minlength="2"
             ng-maxlength="20">
-            {{ reg.user.lastname }}
+            <!-- {{ reg.user.lastname }} -->
             <span
               ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
               lastname must be at least 2 characters long
@@ -34,7 +34,7 @@
             <br>
 
         <input type="email" name="email" placeholder="Email"
-          ng-model="reg.first.email"
+          ng-model="reg.user.email"
           required>
           <span ng-if="regForm.email.$invalid && regForm.email.$touched">
             Must be a valid email address: handle@domain format
@@ -48,16 +48,22 @@
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
           </span>
-          {{reg.user.phone}}
+          <!-- {{reg.user.phone}} -->
           <br>
           <input type="text" name="menuPick" placeholder="Favorite Menu Item Number"
-            ng-model="reg.user.menuPick"
+            ng-model="reg.user.menuPick" ng-keyup="reg.checkit()">
+            <span>
+
             </span>
-            {{reg.user.menuPick}}
             <br>
-        <button
-          <!-- ng-disabled="regForm.$invalid" -->
-          ng-click="reg.submit()">Submit</button>
+            <span ng-if="regForm.menuPick.$touched">
+              Your Selection: {{reg.user.menuPick}}<br>
+              {{reg.selection}}
+            </span>
+
+
+            <br>
+        <button ng-click="reg.submit()">Submit</button>
 
           <div style="margin-top: 10px;">
             Form valid? {{ regForm.$valid }}
@@ -66,7 +72,12 @@
     </fieldset>
 
     <div id="info" ng-if="reg.completed">
-      Username: {{ reg.user.username}} <br>
+      You are signed up! <br>
+      User name: {{ reg.user.firstname+' '+reg.user.lastname}} <br>
       Email: {{ reg.user.email}} <br>
-      Phone: {{ reg.user.phone }}
+      Phone: {{ reg.user.phone }} <br>
+      Favorite: {{reg.selection}} <br>
     </div>
+
+
+<!-- <div ng-if='reg.showlist==true' ng-repeat='x in reg.shortNameList'> {{x}} </div> -->

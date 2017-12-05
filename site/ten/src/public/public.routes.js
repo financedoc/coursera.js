@@ -45,12 +45,19 @@ function routeConfig ($stateProvider) {
 
     .state('public.my-info', {
         url: '/my-info',
-        templateUrl: 'src/public/my-info.html'
+        templateUrl: 'src/public/reg/my-info.html',
+        controller: 'MyController',
+        controllerAs: 'myinfo',
+      //  resolve: {
+          //userInfo:['MenuService',function(MenuService){
+            //return MenuService.getInfo();
+          //}]
+        //}
     })
 
     .state('public.signup', {
       url: '/signup',
-      templateUrl: 'src/public/signup.html',
+      templateUrl: 'src/public/reg/signup.html',
       controller: 'RegController',
       controllerAs: 'reg',
       resolve: {
