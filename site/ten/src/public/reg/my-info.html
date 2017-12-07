@@ -1,4 +1,5 @@
 <h3>My Info Page</h3>
+<div> <a href='SpecRunner.html'> Click Here to See Unit Test</a></div>
 <div ng-if="myinfo.user">Name: {{myinfo.user.firstname}} {{myinfo.user.lastname}}<br>
 Email: {{myinfo.user.email}}<br>
 Phone: {{myinfo.user.phone}}<br>
@@ -10,4 +11,3 @@ Favorite: {{myinfo.user.favorite}} ({{myinfo.user.menuPick}})<br>
 <div ng-if="!myinfo.user">
   Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
 </div>
-<div> <a href='SpecRunner.html'> Click Here to See Unit Test</a></div>
