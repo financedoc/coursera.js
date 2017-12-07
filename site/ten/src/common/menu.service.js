@@ -19,7 +19,6 @@ function MenuService($http, ApiPath) {
     if (category) {
       config.params = {'category': category};
     }
-
     return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
       return response.data;
     });
@@ -30,6 +29,15 @@ function MenuService($http, ApiPath) {
       return response.data;
     });
   };
+
+
+  service.getOneMenuItem = function (itemid) {
+    //console.log(ApiPath + '/menu_items/'+itemid+'.json')
+    return $http.get(ApiPath + '/menu_items/'+itemid+'.json').then(function (response) {
+        return response.data;
+    });
+  };
+
   service.setInfo = function(user){
     service.user = user
     console.log(user)

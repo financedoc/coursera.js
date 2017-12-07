@@ -23,8 +23,25 @@ function RegController(allMenuItems,MenuService) {
       else{
         reg.selection = "No Such Menu Number Exists"
       }
-    }
+    };
 
+// The following function is not called as it is an artifact of task 1.
+// It is left live because task 4 called for a test of teh task 1 function.
+
+    reg.checkone = function () {
+      if (reg.user.menuPick) {
+        x=MenuService.getOneMenuItem(reg.user.menuPick)
+        x.then(function(data){
+          console.log(data.name)
+          if(data.name){
+            reg.selection = data.name
+          }
+        })
+      }
+      else {
+        alert("No menu selection detected")
+      }
+    }
 
   reg.submit = function () {
     MenuService.setInfo(reg.user);
